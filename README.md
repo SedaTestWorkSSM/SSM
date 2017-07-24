@@ -1,5 +1,7 @@
 # SSM
 #
+# SQL都放在 testsql
+#
 # SedaTestSSM為這次使用的框架
 # 搭配testssm SQL
 #
