@@ -5,23 +5,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<body>
+<body >
 <title>SedaTestSSM Login</title>
-<h2>使用者登入!</h2>
+<h1 align="center" >平台管理登入</h1>
+<center><a href="http://www.scmplus.com.cn/">金易达官网</a></center>
+
+
 	<form action="<%=path %>/user/login" method="post">
-		<table>
+		
+	
+		<center><table>
+		
+		<img src="http://duoyun-imgs.oss-cn-hangzhou.aliyuncs.com/gs/pdc/job/img/fd/1b/fd1ba155d9ca41d682e69af1fa02c168.jpg"width="200" height="200">
+		
+
+
+		</table></center>
+
+		
+		<center><table>
+
     		<tr>
-    			<td>帳號</td>
-    			<td><input type="text" name="userName"></td>
+    			 帳號 : <input type="text" name="userName" >
     		</tr>
+    		<br/>
     		<tr>
-    			<td>密碼</td>
-    			<td><input type="password" name="password"></td>
+    			密碼 : <input type="password" name="password" >   		
     		</tr>
+    		<br/>
     		<tr>
-    			<td><input type="submit" value="登入" ></td>
+    			<input type="submit"  style="color:white;background-color:red;width:100px;height:30px;font:bold;text-align:center"  value="登入" >
+    			<input type="submit"  style="color:white;background-color:red;width:100px;height:30px;font:bold;text-align:center"  value="清空" >
     		</tr>
-    	</table>
+    	</table> </center>
     </form>
 </body>
 </html>
