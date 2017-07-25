@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 
 import  com.SedaTestSSM.dao.UserMapper;  
   
-@Service("userService")  
+@Service("IUserService")  
 public class UserServiceImpl implements IUserService {  
       
     @Resource  

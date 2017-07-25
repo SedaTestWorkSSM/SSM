@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.SedaTestSSM.dao.CompanyMapper">
+  <resultMap id="BaseResultMap" type="com.SedaTestSSM.proj.Company">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
+    <result column="user_fax" jdbcType="VARCHAR" property="userFax" />
+    <result column="user_d" jdbcType="VARCHAR" property="userD" />
+    <result column="user_p" jdbcType="VARCHAR" property="userP" />
+    <result column="user_email" jdbcType="VARCHAR" property="userEmail" />
+    <result column="company_id" jdbcType="VARCHAR" property="companyId" />
+    <result column="company_aname" jdbcType="VARCHAR" property="companyAname" />
+    <result column="company_cname" jdbcType="VARCHAR" property="companyCname" />
+    <result column="company_ename" jdbcType="VARCHAR" property="companyEname" />
+    <result column="company_rname" jdbcType="VARCHAR" property="companyRname" />
+    <result column="company_date" jdbcType="DATE" property="companyDate" />
+    <result column="company_e" jdbcType="INTEGER" property="companyE" />
+    <result column="company_c" jdbcType="DECIMAL" property="companyC" />
+    <result column="company_phone" jdbcType="INTEGER" property="companyPhone" />
+    <result column="company_fax" jdbcType="INTEGER" property="companyFax" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.SedaTestSSM.proj.CompanyWithBLOBs">
+    <result column="company_txt" jdbcType="LONGVARCHAR" property="companyTxt" />
+    <result column="company_stxt" jdbcType="LONGVARCHAR" property="companyStxt" />
+    <result column="company_ladd" jdbcType="LONGVARCHAR" property="companyLadd" />
+    <result column="company_add" jdbcType="LONGVARCHAR" property="companyAdd" />
+    <result column="company_area" jdbcType="LONGVARCHAR" property="companyArea" />
+    <result column="company_type" jdbcType="LONGVARCHAR" property="companyType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, user_name, user_phone, user_fax, user_d, user_p, user_email, company_id, 
+    company_aname, company_cname, company_ename, company_rname, company_date, company_e, 
+    company_c, company_phone, company_fax
+  </sql>
+  <sql id="Blob_Column_List">
+    company_txt, company_stxt, company_ladd, company_add, company_area, company_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from company
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from company
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.SedaTestSSM.proj.CompanyWithBLOBs">
+    insert into company (id, user_id, user_name, 
+      user_phone, user_fax, user_d, 
+      user_p, user_email, company_id, 
+      company_aname, company_cname, company_ename, 
+      company_rname, company_date, company_e, 
+      company_c, company_phone, company_fax, 
+      company_txt, company_stxt, company_ladd, 
+      company_add, company_area, company_type
+      )
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{userPhone,jdbcType=VARCHAR}, #{userFax,jdbcType=VARCHAR}, #{userD,jdbcType=VARCHAR}, 
+      #{userP,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, #{companyId,jdbcType=VARCHAR}, 
+      #{companyAname,jdbcType=VARCHAR}, #{companyCname,jdbcType=VARCHAR}, #{companyEname,jdbcType=VARCHAR}, 
+      #{companyRname,jdbcType=VARCHAR}, #{companyDate,jdbcType=DATE}, #{companyE,jdbcType=INTEGER}, 
+      #{companyC,jdbcType=DECIMAL}, #{companyPhone,jdbcType=INTEGER}, #{companyFax,jdbcType=INTEGER}, 
+      #{companyTxt,jdbcType=LONGVARCHAR}, #{companyStxt,jdbcType=LONGVARCHAR}, #{companyLadd,jdbcType=LONGVARCHAR}, 
+      #{companyAdd,jdbcType=LONGVARCHAR}, #{companyArea,jdbcType=LONGVARCHAR}, #{companyType,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.SedaTestSSM.proj.CompanyWithBLOBs">
+    insert into company
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="userPhone != null">
+        user_phone,
+      </if>
+      <if test="userFax != null">
+        user_fax,
+      </if>
+      <if test="userD != null">
+        user_d,
+      </if>
+      <if test="userP != null">
+        user_p,
+      </if>
+      <if test="userEmail != null">
+        user_email,
+      </if>
+      <if test="companyId != null">
+        company_id,
+      </if>
+      <if test="companyAname != null">
+        company_aname,
+      </if>
+      <if test="companyCname != null">
+        company_cname,
+      </if>
+      <if test="companyEname != null">
+        company_ename,
+      </if>
+      <if test="companyRname != null">
+        company_rname,
+      </if>
+      <if test="companyDate != null">
+        company_date,
+      </if>
+      <if test="companyE != null">
+        company_e,
+      </if>
+      <if test="companyC != null">
+        company_c,
+      </if>
+      <if test="companyPhone != null">
+        company_phone,
+      </if>
+      <if test="companyFax != null">
+        company_fax,
+      </if>
+      <if test="companyTxt != null">
+        company_txt,
+      </if>
+      <if test="companyStxt != null">
+        company_stxt,
+      </if>
+      <if test="companyLadd != null">
+        company_ladd,
+      </if>
+      <if test="companyAdd != null">
+        company_add,
+      </if>
+      <if test="companyArea != null">
+        company_area,
+      </if>
+      <if test="companyType != null">
+        company_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhone != null">
+        #{userPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="userFax != null">
+        #{userFax,jdbcType=VARCHAR},
+      </if>
+      <if test="userD != null">
+        #{userD,jdbcType=VARCHAR},
+      </if>
+      <if test="userP != null">
+        #{userP,jdbcType=VARCHAR},
+      </if>
+      <if test="userEmail != null">
+        #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null">
+        #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyAname != null">
+        #{companyAname,jdbcType=VARCHAR},
+      </if>
+      <if test="companyCname != null">
+        #{companyCname,jdbcType=VARCHAR},
+      </if>
+      <if test="companyEname != null">
+        #{companyEname,jdbcType=VARCHAR},
+      </if>
+      <if test="companyRname != null">
+        #{companyRname,jdbcType=VARCHAR},
+      </if>
+      <if test="companyDate != null">
+        #{companyDate,jdbcType=DATE},
+      </if>
+      <if test="companyE != null">
+        #{companyE,jdbcType=INTEGER},
+      </if>
+      <if test="companyC != null">
+        #{companyC,jdbcType=DECIMAL},
+      </if>
+      <if test="companyPhone != null">
+        #{companyPhone,jdbcType=INTEGER},
+      </if>
+      <if test="companyFax != null">
+        #{companyFax,jdbcType=INTEGER},
+      </if>
+      <if test="companyTxt != null">
+        #{companyTxt,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="companyStxt != null">
+        #{companyStxt,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="companyLadd != null">
+        #{companyLadd,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="companyAdd != null">
+        #{companyAdd,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="companyArea != null">
+        #{companyArea,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="companyType != null">
+        #{companyType,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.SedaTestSSM.proj.CompanyWithBLOBs">
+    update company
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhone != null">
+        user_phone = #{userPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="userFax != null">
+        user_fax = #{userFax,jdbcType=VARCHAR},
+      </if>
+      <if test="userD != null">
+        user_d = #{userD,jdbcType=VARCHAR},
+      </if>
+      <if test="userP != null">
+        user_p = #{userP,jdbcType=VARCHAR},
+      </if>
+      <if test="userEmail != null">
+        user_email = #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null">
+        company_id = #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyAname != null">
+        company_aname = #{companyAname,jdbcType=VARCHAR},
+      </if>
+      <if test="companyCname != null">
+        company_cname = #{companyCname,jdbcType=VARCHAR},
+      </if>
+      <if test="companyEname != null">
+        company_ename = #{companyEname,jdbcType=VARCHAR},
+      </if>
+      <if test="companyRname != null">
+        company_rname = #{companyRname,jdbcType=VARCHAR},
+      </if>
+      <if test="companyDate != null">
+        company_date = #{companyDate,jdbcType=DATE},
+      </if>
+      <if test="companyE != null">
+        company_e = #{companyE,jdbcType=INTEGER},
+      </if>
+      <if test="companyC != null">
+        company_c = #{companyC,jdbcType=DECIMAL},
+      </if>
+      <if test="companyPhone != null">
+        company_phone = #{companyPhone,jdbcType=INTEGER},
+      </if>
+      <if test="companyFax != null">
+        company_fax = #{companyFax,jdbcType=INTEGER},
+      </if>
+      <if test="companyTxt != null">
+        company_txt = #{companyTxt,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="companyStxt != null">
+        company_stxt = #{companyStxt,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="companyLadd != null">
+        company_ladd = #{companyLadd,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="companyAdd != null">
+        company_add = #{companyAdd,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="companyArea != null">
+        company_area = #{companyArea,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="companyType != null">
+        company_type = #{companyType,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.SedaTestSSM.proj.CompanyWithBLOBs">
+    update company
+    set user_id = #{userId,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      user_phone = #{userPhone,jdbcType=VARCHAR},
+      user_fax = #{userFax,jdbcType=VARCHAR},
+      user_d = #{userD,jdbcType=VARCHAR},
+      user_p = #{userP,jdbcType=VARCHAR},
+      user_email = #{userEmail,jdbcType=VARCHAR},
+      company_id = #{companyId,jdbcType=VARCHAR},
+      company_aname = #{companyAname,jdbcType=VARCHAR},
+      company_cname = #{companyCname,jdbcType=VARCHAR},
+      company_ename = #{companyEname,jdbcType=VARCHAR},
+      company_rname = #{companyRname,jdbcType=VARCHAR},
+      company_date = #{companyDate,jdbcType=DATE},
+      company_e = #{companyE,jdbcType=INTEGER},
+      company_c = #{companyC,jdbcType=DECIMAL},
+      company_phone = #{companyPhone,jdbcType=INTEGER},
+      company_fax = #{companyFax,jdbcType=INTEGER},
+      company_txt = #{companyTxt,jdbcType=LONGVARCHAR},
+      company_stxt = #{companyStxt,jdbcType=LONGVARCHAR},
+      company_ladd = #{companyLadd,jdbcType=LONGVARCHAR},
+      company_add = #{companyAdd,jdbcType=LONGVARCHAR},
+      company_area = #{companyArea,jdbcType=LONGVARCHAR},
+      company_type = #{companyType,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.SedaTestSSM.proj.Company">
+    update company
+    set user_id = #{userId,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      user_phone = #{userPhone,jdbcType=VARCHAR},
+      user_fax = #{userFax,jdbcType=VARCHAR},
+      user_d = #{userD,jdbcType=VARCHAR},
+      user_p = #{userP,jdbcType=VARCHAR},
+      user_email = #{userEmail,jdbcType=VARCHAR},
+      company_id = #{companyId,jdbcType=VARCHAR},
+      company_aname = #{companyAname,jdbcType=VARCHAR},
+      company_cname = #{companyCname,jdbcType=VARCHAR},
+      company_ename = #{companyEname,jdbcType=VARCHAR},
+      company_rname = #{companyRname,jdbcType=VARCHAR},
+      company_date = #{companyDate,jdbcType=DATE},
+      company_e = #{companyE,jdbcType=INTEGER},
+      company_c = #{companyC,jdbcType=DECIMAL},
+      company_phone = #{companyPhone,jdbcType=INTEGER},
+      company_fax = #{companyFax,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="findAll" resultType="com.SedaTestSSM.proj.Company" >
+    SELECT * FROM company
+  </select>
+</mapper>

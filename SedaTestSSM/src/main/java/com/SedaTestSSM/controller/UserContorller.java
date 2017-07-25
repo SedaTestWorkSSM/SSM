@@ -1,5 +1,7 @@
 package com.SedaTestSSM.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
@@ -33,12 +35,10 @@ public class UserContorller {
 			return "";
 		}
 	}
-	@RequestMapping("/Audit")
-	public String Audit() {
-			return "Audit";
-	}
+
 	@RequestMapping("/Maintain")
 	public String Maintain() {
+
 			return "Maintain";
 	}
 }
