@@ -6,7 +6,12 @@
 #
 #TestSSM04為參考用框架
 #搭配testmaven SQL
-#
+# 
+# 
+# ***20170725 by何其嘉
+# 前端優化 index.jsp
+# 
+# 
 # ***20170725 by賴玄
 # 新增 SQL資料表
 # 新增 SSM對應SQL的資料表
