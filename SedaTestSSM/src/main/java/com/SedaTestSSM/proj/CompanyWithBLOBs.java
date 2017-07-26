@@ -1,5 +1,6 @@
 package com.SedaTestSSM.proj;
 
+
 public class CompanyWithBLOBs extends Company {
     private String companyTxt;
 
@@ -60,4 +61,5 @@ public class CompanyWithBLOBs extends Company {
     public void setCompanyType(String companyType) {
         this.companyType = companyType == null ? null : companyType.trim();
     }
+
 }

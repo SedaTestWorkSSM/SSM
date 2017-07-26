@@ -20,5 +20,5 @@ public interface CompanyMapper {
 
     int updateByPrimaryKey(Company record);
     
-    List<Company> findAll();
+    List<CompanyWithBLOBs> findAll();
 }

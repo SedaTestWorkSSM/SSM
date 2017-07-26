@@ -343,7 +343,12 @@
       company_fax = #{companyFax,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <select id="findAll" resultType="com.SedaTestSSM.proj.Company" >
-    SELECT * FROM company
+  <select id="findAll" resultType="com.SedaTestSSM.proj.CompanyWithBLOBs" >
+    SELECT id id,user_id userId,user_name userName ,user_phone userPhone,
+    user_fax userFax,user_d userD,user_p userP,user_email userEmail,company_id companyId,
+    company_aname companyAname,company_cname companyCname,company_ename companyEname,
+    company_rname companyRname,company_date companyDate,company_e companyE,company_c companyC,
+    company_phone companyPhone,company_fax companyFax,company_txt companyTxt,company_stxt companyStxt,
+    company_ladd companyLadd,company_add companyAdd,company_area companyArea,company_type companyType FROM company
   </select>
 </mapper>

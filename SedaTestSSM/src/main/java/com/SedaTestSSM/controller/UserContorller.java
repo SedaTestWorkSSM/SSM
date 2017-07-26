@@ -1,7 +1,5 @@
 package com.SedaTestSSM.controller;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 

@@ -2,8 +2,10 @@ package com.SedaTestSSM.service;
 
 import java.util.List;
 
-import com.SedaTestSSM.proj.Company;
 
+
+import com.SedaTestSSM.proj.CompanyWithBLOBs;
 public interface ICompanyService {
-	public List<Company> findAll();
+	List<CompanyWithBLOBs> findAll();
+    public CompanyWithBLOBs getUserById(int Id);  
 }
