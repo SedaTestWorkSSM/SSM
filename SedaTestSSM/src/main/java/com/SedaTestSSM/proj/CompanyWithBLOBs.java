@@ -62,4 +62,6 @@ public class CompanyWithBLOBs extends Company {
         this.companyType = companyType == null ? null : companyType.trim();
     }
 
+
+
 }

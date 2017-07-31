@@ -38,5 +38,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		</c:forEach>
     	</tbody>
     </table>
+	<input type="button" value="匯出Excel" onclick="window.location.href='<%=path %>/user/ExcelUtil'">
 </body>
 </html>

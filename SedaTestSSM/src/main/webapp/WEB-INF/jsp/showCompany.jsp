@@ -3,6 +3,9 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+    <%@page import="java.io.OutputStream"%>
+    <%@page import="com.SedaTestSSM.util.*"%>
+    <%@page import="java.sql.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,6 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title>showCompany</title>
 </head>
 <body>
+
 <table>
     	<thead>
     		<tr>
@@ -66,5 +70,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     			</tr>
     	</tbody>
     </table>
+
+	    <input type="button" value="匯出Excel" onclick="window.location.href='<%=path %>/user/ExcelUtil'">
+
 </body>
 </html>

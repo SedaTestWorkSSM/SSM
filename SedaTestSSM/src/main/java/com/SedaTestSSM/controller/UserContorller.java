@@ -29,8 +29,8 @@ public class UserContorller {
 		user = this.userService.login(user.getUserName(), user.getPassword());
 		if (user != null) {
 			return "login";
-		} else {
-			return "";
+		} else {       
+            return "error";
 		}
 	}
 

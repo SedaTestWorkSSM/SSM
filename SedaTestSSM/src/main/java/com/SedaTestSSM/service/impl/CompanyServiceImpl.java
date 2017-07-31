@@ -23,5 +23,6 @@ public class CompanyServiceImpl implements ICompanyService{
 	public CompanyWithBLOBs getUserById(int Id) {
 		// TODO Auto-generated method stub
         return this.companyMapper.selectByPrimaryKey(Id);  
-	}  
+	}
+
 }
