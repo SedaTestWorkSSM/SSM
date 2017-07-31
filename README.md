@@ -1,7 +1,6 @@
 # SSM
 #SQL都放在 testsql
 #
-#SedaTestSSM根目錄下settings下載後更名為.settings 
 #SedaTestSSM為這次使用的框架
 #搭配testssm SQL
 #
